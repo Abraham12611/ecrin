@@ -31,3 +31,11 @@ body {
 .stage-skin[data-active] b::after { content: " · active"; font-weight: 400; color: #c8a36b; }
 .stage-foot { text-align: center; font-size: 12px; color: #9b907d; }
 .stage-foot p { margin: 0 auto; max-width: 72ch; }
+
+@media (max-width: 560px) {
+  .stage { padding: 14px 8px 28px; gap: 16px; }
+  .stage-title { letter-spacing: .1em; }
+  .stage-lede { font-size: 14px; margin-top: 2px; }
+  .stage-skins { display: grid; grid-template-columns: 1fr 1fr; }
+  .stage-skin { min-width: 0; }
+}

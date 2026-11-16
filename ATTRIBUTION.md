@@ -18,6 +18,8 @@ Generated for this project with OpenAI GPT Image 2.6 (Sunburst) via fal.ai, from
 ## Media
 Demo video is a Mux demo asset streamed from `stream.mux.com` (playback ID in `src/player/EcrinPlayer.tsx`). It is not redistributed in this repository.
 
+Portrait demo clip (`public/media/amalfi-portrait.mp4`, poster `.jpg`): a still generated with GPT Image 2.6 through fal, animated with Kling v3 Standard image-to-video (`fal-ai/kling-video/v3/standard/image-to-video`), then re-encoded to 720x1280, 24 fps, no audio. Mobile hardware art in `public/assets/mobile-*.webp` was generated the same way and processed by `scripts/process-mobile-assets.mjs`.
+
 ## Reference mockups
 `references/*.png` are concept art from the original brief. They contain an obsolete "KITBASH" label, are not shipped in the built app, and must not be used in public-facing ÉCRIN material.
 

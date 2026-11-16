@@ -34,7 +34,7 @@ export function App() {
 
       <footer className="stage-foot">
         <p>
-          Independent craft interpretation. No house marks or monograms. Apache-2.0 · Built on Video.js v10 · Hardware art generated with GPT Image 2.6 (fal).
+          Independent craft interpretation. No house marks or monograms. Apache-2.0 · Built on Video.js v10.
         </p>
       </footer>
     </main>

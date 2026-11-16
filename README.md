@@ -25,6 +25,15 @@ Entry for the Contra *Video.js Skins Design Challenge*. Licensed under Apache-2.
 
 Hardware that is hard to draw in code (brass corner caps, clasp, zipper pull, bridle buckle, watch crown, knurled knob) and the material textures (espresso, saddle and walnut leather, onyx leather, champagne metal, bordeaux enamel, walnut veneer) were generated with **GPT Image 2.6 (Sunburst)** through fal, then trimmed and converted to WebP by `scripts/process-assets.mjs`. Everything functional (controls, layout, stitching, tracks, rails, dial arcs, icons) is SVG and CSS. See [ATTRIBUTION.md](ATTRIBUTION.md).
 
+## Mobile
+
+Every skin has a phone layout, driven by a container query (`@container ecrin (max-width: 560px)`) rather than viewport breakpoints, so it also applies when the player is embedded in a narrow column. Sizing is fluid (`cqw` and `clamp()`), and the layout is checked from 320 to 540 px.
+
+- Controls sit in three rows: play, time and tools; the seek bar; mute, volume and a visible volume readout (hover readouts do not work on touch).
+- The media area is portrait (4:5). A portrait clip (`public/media/amalfi-portrait.mp4`) is chosen once at load on narrow screens. Desktop keeps the Mux landscape stream. Force either with `?media=portrait` or `?media=landscape`.
+- The source is never swapped on resize or skin change, so switching skins does not restart playback or reset volume.
+- Each skin has phone hardware: corner plates, plate, D-ring, ribbon.
+
 ## Run it
 
 ```bash

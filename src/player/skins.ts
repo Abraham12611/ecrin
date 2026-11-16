@@ -14,31 +14,31 @@ export const SKINS: Record<SkinId, SkinDefinition> = {
     id: 'voyage',
     label: 'Voyage',
     description: 'Travel-case leather and zipper volume',
-    assets: ['leather-espresso', 'voyage-corner', 'voyage-clasp', 'voyage-zipper-pull'],
+    assets: ['leather-espresso', 'voyage-corner', 'voyage-clasp', 'voyage-zipper-pull', 'mobile-voyage-corner', 'mobile-voyage-plate'],
   },
   bridle: {
     id: 'bridle',
     label: 'Bridle',
     description: 'Saddlery and buckle seeking',
-    assets: ['leather-saddle', 'bridle-buckle'],
+    assets: ['leather-saddle', 'bridle-buckle', 'mobile-bridle-dring'],
   },
   horlogerie: {
     id: 'horlogerie',
     label: 'Horlogerie',
     description: 'Watchmaking and a crown volume dial',
-    assets: ['metal-champagne', 'enamel-bordeaux', 'horlogerie-crown'],
+    assets: ['metal-champagne', 'enamel-bordeaux', 'horlogerie-crown', 'mobile-horlogerie-corner'],
   },
   folio: {
     id: 'folio',
     label: 'Folio',
     description: 'Quiet leather stationery and stitched ribbon',
-    assets: ['leather-walnut'],
+    assets: ['leather-walnut', 'mobile-folio-ribbon'],
   },
   'grand-tourer': {
     id: 'grand-tourer',
     label: 'Grand Tourer',
     description: 'Touring cockpit and illuminated rail',
-    assets: ['leather-onyx', 'veneer-walnut', 'gt-knob'],
+    assets: ['leather-onyx', 'veneer-walnut', 'gt-knob', 'mobile-gt-corner'],
   },
 };
 

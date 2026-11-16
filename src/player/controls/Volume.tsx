@@ -29,6 +29,9 @@ function LinearVolume() {
 
 export function VolumeControl({ skin }: { skin: SkinId }) {
   const dial = DIALS[skin];
+  const volume = usePlayer((s) => s.volume);
+  const muted = usePlayer((s) => s.muted);
+  const pct = typeof volume === 'number' ? Math.round(volume * 100) : 0;
   return (
     <div className="ecrin-audio">
       <MuteButton
@@ -40,6 +43,11 @@ export function VolumeControl({ skin }: { skin: SkinId }) {
         )}
       />
       {dial ? <RotaryVolume image={dial} /> : <LinearVolume />}
+      {typeof volume === 'number' && (
+        <output className="ecrin-vol-text" aria-hidden="true">
+          {muted ? 'Muted' : `${pct}%`}
+        </output>
+      )}
     </div>
   );
 }

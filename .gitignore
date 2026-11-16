@@ -8,3 +8,4 @@ playwright-report
 scripts/probe*.mjs
 scripts/sheet.mjs
 scripts/shots.mjs
+.vercel

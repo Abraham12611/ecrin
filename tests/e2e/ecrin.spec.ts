@@ -165,3 +165,77 @@ test('every deck control has an accessible name in every skin', async ({ page })
     expect(unnamed, id).toEqual([]);
   }
 });
+
+const PHONE_WIDTHS = [320, 360, 375, 390, 412, 430, 480, 540];
+
+test('phone layout: portrait source, nothing overflows or overlaps at 8 phone widths x 5 skins', async ({ page }) => {
+  for (const width of PHONE_WIDTHS) {
+    await page.setViewportSize({ width, height: 800 });
+    for (const [id] of SKINS) {
+      await page.goto(`/?skin=${id}`);
+      await expect(page.locator('.ecrin')).toHaveAttribute('data-media', 'portrait');
+      const r = await page.evaluate(() => {
+        const box = (el: Element | null) => (el ? el.getBoundingClientRect() : null);
+        const root = box(document.querySelector('.ecrin'))!;
+        const bad: string[] = [];
+        const els = [...document.querySelectorAll('.ecrin-deck button, .ecrin-deck [role="slider"], .ecrin-time, .ecrin-vol-text')];
+        for (const el of els) {
+          const b = el.getBoundingClientRect();
+          if (b.width === 0) continue;
+          if (b.left < root.left - 1 || b.right > root.right + 1) bad.push('outside: ' + el.className);
+        }
+        const play = box(document.querySelector('.ecrin-deck .ecrin-play'))!;
+        const time = box(document.querySelector('.ecrin-time'))!;
+        const tools = box(document.querySelector('.ecrin-tools'))!;
+        if (play.right > time.left + 1) bad.push('play overlaps time');
+        if (time.right > tools.left + 1) bad.push('time overlaps tools');
+        const small = [...document.querySelectorAll('.ecrin-deck button')].filter((b) => b.getBoundingClientRect().width > 0 && (b.getBoundingClientRect().width < 38 || b.getBoundingClientRect().height < 38));
+        if (small.length) bad.push('target < 38px');
+        return { bad, hOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth };
+      });
+      expect(r.hOverflow, `overflow ${id} @ ${width}`).toBe(false);
+      expect(r.bad, `${id} @ ${width}`).toEqual([]);
+    }
+  }
+});
+
+test('phone: volume is reachable (mute + slider/dial + readout) in every skin', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  for (const [id] of SKINS) {
+    await page.goto(`/?skin=${id}`);
+    await expect(page.getByRole('slider', { name: 'Volume' }).first()).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Mute', exact: true })).toBeVisible();
+    await expect(page.locator('.ecrin-vol-text')).toBeVisible();
+  }
+});
+
+test('phone: settings sheet stays inside the player and scrolls; skin switching keeps playback', async ({ page }) => {
+  for (const width of [320, 390, 480]) {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto('/?skin=voyage');
+    await page.waitForFunction(() => (document.querySelector('video') as HTMLVideoElement).readyState >= 1, null, { timeout: 30_000 });
+    await page.evaluate(() => { (document.querySelector('video') as HTMLVideoElement).dataset.id = 'original'; });
+    await page.locator('.ecrin-deck .ecrin-play').click();
+    await expect.poll(async () => (await snap(page)).t, { timeout: 15_000 }).toBeGreaterThan(0.5);
+    await openAppearance(page);
+    const inside = await page.evaluate(() => {
+      const p = document.querySelector('.ecrin-panel')!.getBoundingClientRect();
+      const r = document.querySelector('.ecrin')!.getBoundingClientRect();
+      return p.left >= r.left - 1 && p.right <= r.right + 1 && p.top >= r.top - 1 && p.bottom <= r.bottom + 1;
+    });
+    expect(inside, `panel inside player @ ${width}`).toBe(true);
+    for (const [, label] of SKINS) {
+      await radio(page, label).check({ force: true });
+      expect((await snap(page)).paused).toBe(false);
+      expect(await page.locator('video[data-id="original"]').count()).toBe(1);
+    }
+  }
+});
+
+test('desktop and tablet widths still use the landscape source', async ({ page }) => {
+  for (const width of [768, 1024, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/?skin=folio');
+    await expect(page.locator('.ecrin')).toHaveAttribute('data-media', 'landscape');
+  }
+});

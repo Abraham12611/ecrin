@@ -22,15 +22,16 @@ import './style/bridle.css';
 import './style/horlogerie.css';
 import './style/folio.css';
 import './style/grand-tourer.css';
+import './style/mobile.css';
 
-type Props = { skin: SkinId; onSelectSkin: (id: SkinId) => void; children: ReactNode };
+type Props = { skin: SkinId; onSelectSkin: (id: SkinId) => void; media?: 'portrait' | 'landscape'; children: ReactNode };
 
 /**
  * The skin: one stable tree. `data-ecrin-skin` on the root swaps tokens, textures
  * and the signature controls via CSS. `skin` is never used as a React key, so the
  * Container and the media element are never remounted.
  */
-export function EcrinSkin({ skin, onSelectSkin, children }: Props) {
+export function EcrinSkin({ skin, onSelectSkin, media = 'landscape', children }: Props) {
   const [announcement, setAnnouncement] = useState('');
   const first = useRef(true);
 
@@ -43,7 +44,7 @@ export function EcrinSkin({ skin, onSelectSkin, children }: Props) {
   }, [skin]);
 
   return (
-    <Container className="ecrin" data-ecrin-skin={skin}>
+    <Container className="ecrin" data-ecrin-skin={skin} data-media={media}>
       <div className="ecrin-case">
         <div className="ecrin-ornaments" aria-hidden="true">
           <i className="orn orn-corner tl" /><i className="orn orn-corner tr" />
