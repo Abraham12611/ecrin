@@ -1,0 +1,49 @@
+/* GRAND TOURER: touring cockpit. Onyx leather, walnut veneer, nickel, amber light. */
+.ecrin[data-ecrin-skin="grand-tourer"] {
+  --e-ink: #f3ede2; --e-metal: #8f8578; --e-time-ink: #f6f0e6;
+  --e-pt: 34px; --e-px: 20px; --e-r: 26px; --e-screen-r: 12px; --e-deck-px: 22px;
+  --e-pt-c: 28px; --e-px-c: 12px; --e-deck-px-c: 14px;
+  --e-case-bg: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.35)), url(/assets/leather-onyx.webp) center / 240px;
+  --e-case-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 0 0 1px rgba(143,133,120,.5), 0 28px 54px -14px rgba(0,0,0,.8);
+  --e-screen-shadow: 0 0 0 2px #0b0a09, 0 0 0 3px rgba(143,133,120,.7), 0 0 18px rgba(234,156,80,.12);
+  --e-btn-r: 50%;
+  --e-btn-bg: radial-gradient(circle at 32% 24%, #34312e, #131211 75%);
+  --e-btn-ink: #efe8dc;
+  --e-btn-border: 0;
+  --e-btn-shadow: inset 0 0 0 1.5px #8f8578, inset 0 0 0 3px #0e0d0c, 0 3px 5px rgba(0,0,0,.6);
+  --e-tip-bg: #0f0e0d; --e-tip-line: #8f8578;
+  --e-arc-track: rgba(143,133,120,.4); --e-arc: #ea9c50;
+  --e-panel-bg: #14130f; --e-panel-ink: #f3ede2; --e-panel-border: 1px solid #8f8578; --e-panel-r: 14px;
+  --e-panel-sel: #ea9c50; --e-panel-sel-ink: #14130f; --e-panel-sel-bg: rgba(234,156,80,.12);
+  --e-panel-shadow: 0 -4px 30px rgba(234,156,80,.08), 0 18px 40px rgba(0,0,0,.7);
+}
+/* walnut veneer band with a nickel edge */
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-case::before { left: 0; right: 0; top: 0; height: 22px; border-radius: 26px 26px 0 0; background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.45)), url(/assets/veneer-walnut.webp) center / 260px; border-bottom: 1px solid #8f8578; box-shadow: 0 1px 0 rgba(0,0,0,.6); }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-case::after { inset: 28px 9px 9px; border: 1.2px dashed rgba(190,120,70,.5); border-radius: 18px; }
+.ecrin[data-ecrin-skin="grand-tourer"] .orn-jewel { display: block; top: 24px; left: 50%; translate: -50% 0; width: 52px; height: 3px; border-radius: 2px; background: #ea9c50; box-shadow: 0 0 10px 2px rgba(234,156,80,.5); }
+.ecrin[data-ecrin-skin="grand-tourer"] .orn-plaque { display: flex; gap: 8px; align-items: baseline; top: 4px; left: 22px; font-family: var(--e-font-display); font-size: 11px; letter-spacing: .26em; color: #e8dcc6; text-shadow: 0 1px 1px rgba(0,0,0,.8); }
+.ecrin[data-ecrin-skin="grand-tourer"] .orn-plaque em { font-style: normal; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; opacity: .8; }
+
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-deck { border-top: 1px solid rgba(143,133,120,.35); margin-top: 12px; padding-bottom: 22px; }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-time { font-size: 16px; letter-spacing: .08em; font-weight: 500; }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-play { width: 60px; height: 60px; background: radial-gradient(circle at 32% 24%, #3b3834, #121110 78%); box-shadow: inset 0 0 0 2px #8f8578, inset 0 0 0 5px #0e0d0c, inset 0 0 0 6px rgba(143,133,120,.45), 0 4px 8px rgba(0,0,0,.7); color: #fff; }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-play:not([data-paused]) { box-shadow: inset 0 0 0 2px #ea9c50, inset 0 0 0 5px #0e0d0c, inset 0 0 0 6px rgba(234,156,80,.45), 0 4px 8px rgba(0,0,0,.7); }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-play svg { width: 26px; height: 26px; }
+
+/* backlit rail */
+.ecrin[data-ecrin-skin="grand-tourer"] { --e-seek-h: 7px; }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-seek-track { background: #2b2927; box-shadow: inset 0 1px 2px rgba(0,0,0,.9), 0 0 0 1px #0b0a09, 0 1px 0 1px rgba(143,133,120,.3); }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-seek-buffer { background: repeating-linear-gradient(90deg, rgba(143,133,120,.65) 0 3px, transparent 3px 6px); }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-seek-fill { background: linear-gradient(#f6bb82, #ea9c50); box-shadow: 0 0 9px rgba(234,156,80,.6); }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-seek-thumb { width: 22px; height: 22px; border-radius: 50%; background: conic-gradient(from 30deg, #e5dfd5, #8f8578, #f1ece3, #8f8578, #e5dfd5); border: 2px solid #0e0d0c; box-shadow: 0 0 0 1px #8f8578, 0 3px 6px rgba(0,0,0,.7); }
+.ecrin[data-ecrin-skin="grand-tourer"] .ecrin-seek-thumb::after { content: ""; position: absolute; inset: 6px; border-radius: 50%; background: #1a1816; }
+
+/* knurled knob */
+.ecrin[data-ecrin-skin="grand-tourer"] { --e-dial: 64px; }
+
+@container ecrin (max-width: 640px) {
+  .ecrin[data-ecrin-skin="grand-tourer"] .orn-jewel { display: none; }
+  .ecrin[data-ecrin-skin="grand-tourer"] { --e-dial: 48px; }
+  .ecrin[data-ecrin-skin="grand-tourer"] .ecrin-play { width: 52px; height: 52px; }
+  .ecrin[data-ecrin-skin="grand-tourer"] .ecrin-case::before { height: 18px; }
+}

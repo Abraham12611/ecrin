@@ -1,0 +1,52 @@
+/* BRIDLE: saddlery. Saddle leather, edge paint, buckle playhead, pull-tab volume. */
+.ecrin[data-ecrin-skin="bridle"] {
+  --e-ink: #f6eee0; --e-metal: #d0aa70; --e-thread: rgba(241,232,218,.7); --e-time-ink: #f6eee0;
+  --e-pt: 36px; --e-px: 24px; --e-r: 14px; --e-screen-r: 8px; --e-deck-px: 26px;
+  --e-pt-c: 30px; --e-px-c: 14px; --e-deck-px-c: 16px;
+  --e-case-bg: linear-gradient(180deg, rgba(255,255,255,.07), rgba(0,0,0,.22)), url(/assets/leather-saddle.webp) center / 260px;
+  --e-case-shadow: inset 0 0 0 3px #4b281d, inset 0 0 0 4px rgba(241,232,218,.28), 0 24px 46px -14px rgba(0,0,0,.7);
+  --e-screen-shadow: 0 0 0 2px #3a1e14, 0 0 0 3px rgba(208,170,112,.6);
+  --e-btn-r: 50%;
+  --e-btn-bg: radial-gradient(circle at 32% 26%, #a0603a, #6a3a22 70%);
+  --e-btn-ink: #f6eee0;
+  --e-btn-border: 0;
+  --e-btn-shadow: inset 0 0 0 2px #d0aa70, inset 0 0 0 4px #5b321f, 0 2px 4px rgba(0,0,0,.55);
+  --e-tip-bg: #3a1e14; --e-tip-line: #d0aa70;
+  --e-panel-bg: #f1e8da; --e-panel-ink: #2e1a10; --e-panel-border: 2px solid #79452a; --e-panel-r: 6px; --e-panel-focus: #0a4f9c;
+  --e-panel-hover: rgba(121,69,42,.1); --e-panel-line: rgba(46,26,16,.25);
+  --e-panel-sel: #79452a; --e-panel-sel-ink: #f6eee0; --e-panel-sel-bg: rgba(121,69,42,.12);
+  --e-panel-shadow: 0 16px 34px rgba(0,0,0,.55);
+}
+.ecrin[data-ecrin-skin="bridle"] .ecrin-case::before { inset: 9px; border: 1.6px dashed var(--e-thread); border-radius: 9px; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-case::after { display: none; }
+
+.ecrin[data-ecrin-skin="bridle"] .orn-strap { display: block; top: -4px; width: 30px; height: 38px; border-radius: 4px 4px 10px 10px; background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(255,255,255,.08) 45%, rgba(0,0,0,.3)), url(/assets/leather-saddle.webp) center / 120px; filter: brightness(.7); box-shadow: 0 2px 3px rgba(0,0,0,.6), inset 0 0 0 1.5px rgba(241,232,218,.5); }
+.ecrin[data-ecrin-skin="bridle"] .orn-strap::after { content: ""; position: absolute; inset: 4px 5px; border-inline: 1.5px dashed rgba(241,232,218,.7); }
+.ecrin[data-ecrin-skin="bridle"] .orn-strap.l { left: 14%; }
+.ecrin[data-ecrin-skin="bridle"] .orn-strap.r { right: 14%; }
+.ecrin[data-ecrin-skin="bridle"] .orn-plaque { display: flex; gap: 8px; align-items: baseline; top: 10px; left: 50%; translate: -50% 0; font-family: var(--e-font-display); font-size: 12px; letter-spacing: .26em; color: #f1e8da; text-shadow: 0 1px 0 rgba(0,0,0,.6); }
+.ecrin[data-ecrin-skin="bridle"] .orn-plaque em { font-style: normal; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; opacity: .85; }
+
+.ecrin[data-ecrin-skin="bridle"] .ecrin-play { width: 58px; height: 58px; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-play svg { width: 26px; height: 26px; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-play:active { box-shadow: inset 0 0 0 2px #d0aa70, inset 0 0 0 4px #4b281d, inset 0 4px 8px rgba(0,0,0,.6); }
+
+/* bridle strap seek, buckle thumb */
+.ecrin[data-ecrin-skin="bridle"] { --e-seek-h: 16px; --e-seek-r: 3px; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-seek-track { background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.2)), url(/assets/leather-saddle.webp) center / 140px; box-shadow: 0 0 0 1.5px #3a1e14, 0 1px 0 1.5px rgba(241,232,218,.25); filter: brightness(.7); }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-seek-track::after { content: ""; position: absolute; inset: 0 3px; background: radial-gradient(circle, rgba(0,0,0,.6) 1.8px, transparent 2.4px) 0 50% / 20px 100% repeat-x; pointer-events: none; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-seek-buffer { background: repeating-linear-gradient(90deg, rgba(241,232,218,.35) 0 2px, transparent 2px 5px); }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-seek-fill { background: linear-gradient(#c78556, #8e5231); filter: brightness(1.45); }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-seek-thumb { width: 26px; height: 46px; background: url(/assets/bridle-buckle.webp) center / contain no-repeat; filter: drop-shadow(0 3px 2px rgba(0,0,0,.6)); }
+
+/* leather pull-tab volume */
+.ecrin[data-ecrin-skin="bridle"] { --e-vol-w: 108px; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-volume-track { height: 10px; border-radius: 3px; background: linear-gradient(#2a150d, #3d2013); box-shadow: inset 0 1px 3px rgba(0,0,0,.8), 0 0 0 1.5px rgba(241,232,218,.35); }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-volume-fill { background: repeating-linear-gradient(90deg, #d9b98d 0 6px, #b8905f 6px 8px); border-radius: 3px 0 0 3px; }
+.ecrin[data-ecrin-skin="bridle"] .ecrin-volume-thumb { width: 18px; height: 36px; border-radius: 5px 5px 11px 11px; background: radial-gradient(circle at 50% 22%, #e4c88f 0 2.5px, #8a6a3c 3px 4.5px, transparent 5px), linear-gradient(90deg, rgba(0,0,0,.3), rgba(255,255,255,.12) 45%, rgba(0,0,0,.28)), url(/assets/leather-saddle.webp) center / 100px; border: 1.5px solid #f1e8da; box-shadow: 0 3px 4px rgba(0,0,0,.6); }
+
+@container ecrin (max-width: 640px) {
+  .ecrin[data-ecrin-skin="bridle"] .orn-strap { display: none; }
+  .ecrin[data-ecrin-skin="bridle"] .ecrin-play { width: 52px; height: 52px; }
+  .ecrin[data-ecrin-skin="bridle"] .ecrin-seek-thumb { height: 40px; width: 22px; }
+}

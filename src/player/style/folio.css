@@ -1,0 +1,45 @@
+/* FOLIO: leather stationery. Smooth walnut, linen stitching, stitched ribbon, fold-out settings. */
+.ecrin[data-ecrin-skin="folio"] {
+  --e-ink: #efe6d6; --e-metal: #bfa17a; --e-time-ink: #efe6d6;
+  --e-pt: 16px; --e-px: 16px; --e-r: 14px; --e-screen-r: 8px; --e-deck-px: 14px;
+  --e-pt-c: 12px; --e-px-c: 10px; --e-deck-px-c: 12px;
+  --e-case-bg: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.2)), url(/assets/leather-walnut.webp) center / 280px;
+  --e-case-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 22px 40px -14px rgba(0,0,0,.65);
+  --e-screen-shadow: 0 0 0 1px rgba(0,0,0,.75), 0 0 0 2px rgba(233,223,206,.25);
+  --e-btn-r: 9px;
+  --e-btn-bg: transparent; --e-btn-ink: #efe6d6; --e-btn-border: 1px solid rgba(233,223,206,.4); --e-btn-shadow: none;
+  --e-tip-bg: #2a1a12; --e-tip-line: rgba(233,223,206,.5);
+  --e-panel-bg: #e9dfce; --e-panel-ink: #2b1a12; --e-panel-border: 6px solid #4a2e20; --e-panel-r: 10px; --e-panel-focus: #0a4f9c;
+  --e-panel-hover: rgba(74,46,32,.1); --e-panel-line: rgba(43,26,18,.25);
+  --e-panel-sel: #4a2e20; --e-panel-sel-ink: #efe6d6; --e-panel-sel-bg: rgba(74,46,32,.1);
+  --e-panel-shadow: 0 16px 34px rgba(0,0,0,.5);
+}
+.ecrin[data-ecrin-skin="folio"] .ecrin-case { padding-bottom: 14px; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-case::before { inset: 6px; border: 1.4px dashed rgba(233,223,206,.5); border-radius: 9px; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-case::after { left: 22px; right: 22px; top: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(0,0,0,.35), transparent); } /* the one discreet fold */
+.ecrin[data-ecrin-skin="folio"] .orn-plaque { display: block; top: 3px; left: 50%; translate: -50% 0; font-family: var(--e-font-display); font-size: 9px; letter-spacing: .3em; color: rgba(233,223,206,.7); }
+.ecrin[data-ecrin-skin="folio"] .orn-plaque em { display: none; }
+
+/* opaque strip so time and icons never sit on texture */
+.ecrin[data-ecrin-skin="folio"] .ecrin-deck { margin-top: 10px; padding: 8px var(--e-deck-px); border-radius: 10px; background: #2b1a12; box-shadow: inset 0 1px 3px rgba(0,0,0,.6), 0 0 0 1px rgba(233,223,206,.12); }
+.ecrin[data-ecrin-skin="folio"] .ecrin-btn:hover { background: rgba(233,223,206,.12); filter: none; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-play { width: 48px; height: 48px; border-radius: 9px; background: url(/assets/leather-walnut.webp) center / 140px; border: 1px solid rgba(233,223,206,.55); box-shadow: inset 0 0 0 3px #4a2e20, inset 0 0 0 4px rgba(233,223,206,.45); color: #f6efe2; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-play:hover { background: url(/assets/leather-walnut.webp) center / 140px; filter: brightness(1.15); }
+
+/* stitched ribbon */
+.ecrin[data-ecrin-skin="folio"] { --e-seek-h: 8px; --e-seek-r: 2px; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-seek-track { background: #130b07; box-shadow: inset 0 1px 2px rgba(0,0,0,.9), 0 0 0 1px rgba(233,223,206,.2); }
+.ecrin[data-ecrin-skin="folio"] .ecrin-seek-buffer { background: radial-gradient(circle, rgba(233,223,206,.65) 1px, transparent 1.4px) 0 50% / 6px 100% repeat-x; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-seek-fill { background: repeating-linear-gradient(90deg, transparent 0 6px, rgba(60,40,28,.6) 6px 8px), #e9dfce; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-seek-thumb { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #efdcb6, #bfa17a 60%, #7b6544); border: 1px solid #4d3b25; box-shadow: 0 2px 4px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.5); }
+
+/* deliberately plain slider */
+.ecrin[data-ecrin-skin="folio"] { --e-vol-w: 104px; --e-vol-h: 4px; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-volume-track { background: rgba(233,223,206,.28); }
+.ecrin[data-ecrin-skin="folio"] .ecrin-volume-fill { background: #e9dfce; }
+.ecrin[data-ecrin-skin="folio"] .ecrin-volume-thumb { width: 14px; height: 14px; border-radius: 50%; background: #efe6d6; box-shadow: 0 0 0 2px #2b1a12, 0 0 0 3px rgba(233,223,206,.7); }
+
+/* fold-out settings: hinged from the right edge */
+.ecrin[data-ecrin-skin="folio"] .ecrin-panel { transform-origin: right bottom; animation: ecrin-folio-open var(--ecrin-motion) ease-out; outline: 1.5px dashed rgba(74,46,32,.6); outline-offset: -5px; }
+@keyframes ecrin-folio-open { from { opacity: 0; transform: perspective(700px) rotateY(-55deg); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ecrin[data-ecrin-skin="folio"] .ecrin-panel { animation: none; } }

@@ -1,0 +1,10 @@
+node_modules
+dist
+raw
+tmp
+test-results
+playwright-report
+*.log
+scripts/probe*.mjs
+scripts/sheet.mjs
+scripts/shots.mjs

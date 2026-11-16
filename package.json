@@ -1,0 +1,33 @@
+{
+    "name":  "ecrin",
+    "private":  true,
+    "version":  "0.1.0",
+    "type":  "module",
+    "license":  "Apache-2.0",
+    "scripts":  {
+                    "dev":  "vite",
+                    "build":  "tsc --noEmit \u0026\u0026 vite build",
+                    "preview":  "vite preview",
+                    "test":  "vitest run",
+                    "test:e2e":  "playwright test"
+                },
+    "dependencies":  {
+                         "@videojs/hlsjs-video":  "^10.4.0",
+                         "@videojs/mux-video":  "^10.4.0",
+                         "@videojs/react":  "^10.4.0",
+                         "hls.js":  "^1.7.4",
+                         "react":  "^19.3.1",
+                         "react-dom":  "^19.3.1"
+                     },
+    "devDependencies":  {
+                            "@playwright/test":  "^1.65.1",
+                            "@types/react":  "^19.3.0",
+                            "@types/react-dom":  "^19.3.0",
+                            "@vitejs/plugin-react":  "^6.3.0",
+                            "jsdom":  "^29.1.1",
+                            "sharp":  "^0.35.5",
+                            "typescript":  "^7.0.2",
+                            "vite":  "^8.3.8",
+                            "vitest":  "^5.1.0"
+                        }
+}

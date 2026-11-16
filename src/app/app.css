@@ -1,0 +1,33 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background: #0d0b0a; color: #efe7da;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.stage {
+  min-height: 100svh; display: grid; align-content: start; gap: 28px; padding: clamp(20px, 5vw, 56px) clamp(12px, 4vw, 40px) 40px;
+  background:
+    radial-gradient(1000px 520px at 50% -8%, var(--stage-glow, rgba(200,163,107,.22)), transparent 70%),
+    linear-gradient(180deg, #14100e, #0b0908);
+  transition: --stage-glow 300ms;
+}
+.stage[data-ecrin-stage="voyage"] { --stage-glow: rgba(200,163,107,.24); }
+.stage[data-ecrin-stage="bridle"] { --stage-glow: rgba(208,150,100,.24); }
+.stage[data-ecrin-stage="horlogerie"] { --stage-glow: rgba(158,49,80,.28); }
+.stage[data-ecrin-stage="folio"] { --stage-glow: rgba(190,150,110,.2); }
+.stage[data-ecrin-stage="grand-tourer"] { --stage-glow: rgba(234,156,80,.18); }
+.stage-head { text-align: center; display: grid; gap: 6px; justify-items: center; }
+.stage-kicker { margin: 0; font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: #c9b48f; }
+.stage-title { margin: 0; font: 500 clamp(40px, 8vw, 76px)/1 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; letter-spacing: .12em; color: #f3e8d2; }
+.stage-lede { margin: 6px 0 0; max-width: 56ch; color: #cfc3ae; line-height: 1.5; }
+.stage-lede strong { color: #f3e8d2; }
+.stage-player { width: 100%; max-width: 1040px; margin-inline: auto; }
+.stage-skins { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.stage-skin { display: grid; gap: 2px; padding: 10px 14px; min-width: 150px; border: 1px solid rgba(239,231,218,.18); border-radius: 10px; font-size: 13px; color: #cfc3ae; }
+.stage-skin b { color: #f3e8d2; font-weight: 600; }
+.stage-skin i { font-style: normal; font-size: 12px; }
+.stage-skin[data-active] { border-color: #c8a36b; background: rgba(200,163,107,.12); }
+.stage-skin[data-active] b::after { content: " · active"; font-weight: 400; color: #c8a36b; }
+.stage-foot { text-align: center; font-size: 12px; color: #9b907d; }
+.stage-foot p { margin: 0 auto; max-width: 72ch; }

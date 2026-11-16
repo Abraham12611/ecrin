@@ -1,0 +1,54 @@
+/* HORLOGERIE: watchmaker. Champagne metal frame, bordeaux enamel panel, ruby jewel, crown volume. */
+.ecrin[data-ecrin-skin="horlogerie"] {
+  --e-ink: #f3e7cf; --e-metal: #cbb28a; --e-time-ink: #f3e7cf;
+  --e-pt: 22px; --e-px: 16px; --e-r: 20px; --e-screen-r: 10px; --e-deck-px: 18px;
+  --e-pt-c: 18px; --e-px-c: 10px; --e-deck-px-c: 12px;
+  --e-case-bg: linear-gradient(180deg, rgba(255,255,255,.35), rgba(0,0,0,.12) 60%, rgba(0,0,0,.25)), url(/assets/metal-champagne.webp) center / 300px;
+  --e-case-shadow: inset 0 0 0 1px rgba(255,255,255,.55), inset 0 0 0 3px rgba(80,60,30,.25), 0 26px 48px -14px rgba(0,0,0,.7);
+  --e-screen-shadow: 0 0 0 2px #1a0710, 0 0 0 3px rgba(255,255,255,.4), 0 2px 0 3px rgba(80,60,30,.35);
+  --e-btn-r: 10px;
+  --e-btn-bg: radial-gradient(circle at 30% 22%, #6b2340, #3a0f20 75%);
+  --e-btn-ink: #ecdcb8;
+  --e-btn-border: 1px solid #cbb28a;
+  --e-btn-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 2px 3px rgba(0,0,0,.5);
+  --e-tip-bg: #2a0c17; --e-tip-line: #cbb28a; --e-tip-ink: #f3e7cf;
+  --e-arc-track: rgba(203,178,138,.3); --e-arc: #e6d2a6;
+  --e-panel-bg: #2a0c17; --e-panel-ink: #f3e7cf; --e-panel-border: 1px solid #cbb28a; --e-panel-r: 10px;
+  --e-panel-sel: #cbb28a; --e-panel-sel-ink: #2a0c17; --e-panel-sel-bg: rgba(203,178,138,.14);
+}
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-case { padding-bottom: 16px; }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-case::before, .ecrin[data-ecrin-skin="horlogerie"] .ecrin-case::after { display: none; }
+
+.ecrin[data-ecrin-skin="horlogerie"] .orn-screw { display: block; width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg, transparent 44%, rgba(60,40,20,.8) 44% 56%, transparent 56%), radial-gradient(circle at 35% 30%, #f1e2c0, #a58d63); box-shadow: 0 1px 1px rgba(0,0,0,.5); }
+.ecrin[data-ecrin-skin="horlogerie"] .orn-screw.tl { top: 8px; left: 8px; }
+.ecrin[data-ecrin-skin="horlogerie"] .orn-screw.tr { top: 8px; right: 8px; rotate: 50deg; }
+.ecrin[data-ecrin-skin="horlogerie"] .orn-screw.bl { bottom: 8px; left: 8px; rotate: 20deg; }
+.ecrin[data-ecrin-skin="horlogerie"] .orn-screw.br { bottom: 8px; right: 8px; rotate: 80deg; }
+.ecrin[data-ecrin-skin="horlogerie"] .orn-jewel { display: block; top: 5px; left: 50%; translate: -50% 0; width: 11px; height: 11px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff9bb3, #9e3150 55%, #4f1126); box-shadow: 0 0 0 2px #cbb28a, 0 1px 2px rgba(0,0,0,.6); }
+.ecrin[data-ecrin-skin="horlogerie"] .orn-plaque { display: none; }
+
+/* lower instrument panel */
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-deck { margin-top: 12px; padding: 10px var(--e-deck-px) 12px; border-radius: 14px; background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.25)), url(/assets/enamel-bordeaux.webp) center / 200px; box-shadow: inset 0 0 0 1px rgba(203,178,138,.55), inset 0 3px 8px rgba(0,0,0,.55); }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-time { font-variant-numeric: tabular-nums; letter-spacing: .06em; }
+
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-play { width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(circle at 32% 24%, #f6ead0, #cbb28a 55%, #8f7a55); color: #3a0f20; border: 1px solid #6e5a38; box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 0 0 3px #3a0f20, 0 0 0 4px #cbb28a, 0 3px 5px rgba(0,0,0,.6); }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-play:active { box-shadow: inset 0 2px 6px rgba(0,0,0,.5), 0 0 0 3px #3a0f20, 0 0 0 4px #cbb28a; }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-play svg { width: 26px; height: 26px; }
+
+/* calibrated time rail */
+.ecrin[data-ecrin-skin="horlogerie"] { --e-seek-h: 16px; --e-seek-r: 2px; }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-seek-track { background: repeating-linear-gradient(90deg, rgba(203,178,138,.95) 0 1px, transparent 1px 60px) 0 100% / 100% 11px no-repeat, repeating-linear-gradient(90deg, rgba(203,178,138,.6) 0 1px, transparent 1px 12px) 0 100% / 100% 6px no-repeat, linear-gradient(#1c0710, #2b0d19); box-shadow: inset 0 1px 3px rgba(0,0,0,.9), 0 0 0 1px rgba(203,178,138,.55); }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-seek-buffer { bottom: auto; height: 5px; top: 2px; background: repeating-linear-gradient(90deg, rgba(203,178,138,.6) 0 3px, transparent 3px 5px); }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-seek-fill { bottom: auto; height: 5px; top: 2px; background: linear-gradient(#f3e3bf, #cbb28a); }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-seek-thumb { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff9bb3, #9e3150 55%, #4f1126); box-shadow: 0 0 0 2.5px #cbb28a, 0 0 0 3.5px #5a4526, 0 3px 6px rgba(0,0,0,.65); }
+
+/* crown dial */
+.ecrin[data-ecrin-skin="horlogerie"] { --e-dial: 62px; }
+.ecrin[data-ecrin-skin="horlogerie"] .ecrin-dial { background: radial-gradient(circle, rgba(0,0,0,.35) 0 52%, transparent 53%); }
+
+@container ecrin (max-width: 640px) {
+  .ecrin[data-ecrin-skin="horlogerie"] .orn-screw { display: none; }
+  .ecrin[data-ecrin-skin="horlogerie"] { --e-dial: 48px; }
+  .ecrin[data-ecrin-skin="horlogerie"] .ecrin-play { width: 50px; height: 50px; }
+  .ecrin[data-ecrin-skin="horlogerie"] .ecrin-seek-track { background: repeating-linear-gradient(90deg, rgba(203,178,138,.6) 0 1px, transparent 1px 24px) 0 100% / 100% 6px no-repeat, linear-gradient(#1c0710, #2b0d19); }
+}
