@@ -39,3 +39,6 @@ body {
   .stage-skins { display: grid; grid-template-columns: 1fr 1fr; }
   .stage-skin { min-width: 0; }
 }
+.stage-source-link { color: #dec59c; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(222,197,156,.45); }
+.stage-source-link:hover { color: #f3e8d2; text-decoration-color: currentColor; }
+.stage-source-link:focus-visible { outline: 2px solid #dec59c; outline-offset: 4px; border-radius: 2px; }

@@ -35,6 +35,16 @@ export function App() {
       <footer className="stage-foot">
         <p>
           Independent craft interpretation. No house marks or monograms. Apache-2.0 · Built on Video.js v10.
+          <span className="stage-foot-divider" aria-hidden="true"> · </span>
+          <a
+            className="stage-source-link"
+            href="https://github.com/Abraham12611/ecrin"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View ÉCRIN source on GitHub (opens in a new tab)"
+          >
+            View source on GitHub ↗
+          </a>
         </p>
       </footer>
     </main>
